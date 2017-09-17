@@ -1,7 +1,7 @@
-//1、从顺序表删除最小元素....
-bool Del_min(ListName[])
+//1、从顺序表删除最小元素..
+bool Del_main(ListName)
 {
-	if(ListNmae.length()=0)
+	if(ListName.length()=0)
 		renturn false;
 	int j=0;
 	ElemType p=ListName[0];
@@ -27,7 +27,7 @@ bool Del_min(ListName[])
   } 
   
 //3、长度为N的有序表L,编写一个时间复杂为O（N）
-bool del_e_x(SeqList L,ElemType x)
+bool del_e_x(SeqList &L,ElemType x)
 {
 	int k=0;
 	for(i=0;L.data[i]!=k&&i<L.length;i++)
@@ -39,7 +39,65 @@ bool del_e_x(SeqList L,ElemType x)
 	return true;
  } //很漂亮 
  
+ //4、从有序表删除在给定值之间所有元素
+// bool del_s_t(SeqList &L,ElemType s,ElemType t)
+// {
+// 	if(s>t)
+//	 	return false;
+//	if(L.length=0)
+//		return false;
+//	int h=0;int j=0;
+//	for(int i=0;i<L.length;i++)
+//	{
+//		if(L.data[i]==s)
+//			h=i;
+//		if(L.data[j]==t)
+//			j=t;
+//	}
+//	for(int i=h;i<j;i++)
+//	{
+//		L.data[i]=L.data[j+1];
+//	}
+//	
+//	return true;
+//  } 错误写法，有序表中若有重复元素则丢失。
+
+bool del_s_t(SeqList L,ElemType s,ElemType t)
+{
+	int i,j;
+	if(s>t||L.length==0)
+	{
+		return false;
+	}
+	for ( i =0;i<L.length&&L.data[i]<s;i++);
+	if(i>L.length)
+		return false;//当所有元素均小于t;
+	for(j=i;j<L.length&&L.data[j]<=t;j++)
+	for(;j<L.length;i++,j++)
+	{
+		L.data[i]=L.data[j];
+	 } 
+	 L.length=i;
+	 return true;
+ } 
  
+ //5、顺序表删除
+ bool Del_s_t(SeqList l,ElemType s,Type t)
+ {
+ 	int i,k;
+ 	if(s>t||L.length==0)
+		return false;
+ 	for(i=0;i<L.length;i++)
+ 	{
+ 		if(L.data[i]>=s&&L.data[i]<t)
+ 			k++;
+ 		else
+ 			L.data[i-k]=L.data[i];
+	 }
+	 L.length -=k;
+	 return true;
+  } 
+  
  
  
  
