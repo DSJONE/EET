@@ -141,6 +141,48 @@ bool del_s_t(SeqList L,ElemType s,ElemType t)
 	  return true; 
 	  
    } 
+ //8、已知一个以为数组A[m+n]中一次存放着两个线性表...
+  typedef int DataType;
+  void Reverse (DataType A[],int left,int right,arraySize)
+  {
+  	if(left>=right||arraySize)
+  		return;
+  		
+  	int mid =(left+right)/2;
+  	for(int i=0;i<mid-left;i++)//for( int lefts=left;lefs<=mid;lefs++)
+  {
+  	DataType temp=A[left+i];
+  	A[left+i]=A[rigth-i];
+  	A[right-i]=temp;
+  }
+  void Exchange(DataType A[],int m,int n,arraySzie)
+  {
+  	Reverse(A,0,m+n-1,arraySize);
+  	Reverse(A,0,n-1,arraySize);
+  	Reverse(A,n,m+n-1,arraySize);
+  }
+  }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
