@@ -98,8 +98,49 @@ bool del_s_t(SeqList L,ElemType s,ElemType t)
 	 return true;
   } 
   
- 
- 
+ //6、删除重复元素
+  
+ bool Del_Same(SeqList &L)
+ {
+ 	if(L.length=0)
+ 		return false;
+ 	int i ,j;
+ 	for(i=0,j=1;j<L.length;j++)
+ 	{
+ 		if(L.data[i]!=L.data[[j]])
+		 {
+			L.data[++i]=L.data[j];
+		  } 
+	 }
+	 L.length=i+1;
+	 return true;
+  } //很妙
+  
+  //7、将两个顺序表合并并返回
+  bool Merge_A_B(SeqList A,SeqList B,SeqList &S)//A,B不用引用是因为此处需要AB的副本值。 
+  {
+  	if(A.length+B.length<=S.MaxSzie) 
+  		return false;
+  	int i,j,k;//在循环外声明三个变量已记录 其值。 
+  	while(i<A.length&&j<B.length)
+  	{
+  		if(A.data[i]<B.data[j])
+  			S.data[k++]=A.data[i++];
+  		else
+  			S.data[k++]=B.data[j++];
+	  }
+	  while(i<A.length)
+	  {
+	  	S.data[k++]=A.data[i++];
+	  }
+	  while(j<B.length)
+	  {
+	  	S.data[k++]=B.data[j++];
+	  }//将剩余的一个元素全都放进表中
+	  S.length=k;
+	  return true; 
+	  
+   } 
  
  
  
